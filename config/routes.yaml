@@ -1,0 +1,3 @@
+symfony_cms:
+  resource: '../src/Controller'
+  type: annotation

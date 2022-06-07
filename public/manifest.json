@@ -1,0 +1,5 @@
+{
+  "bundles/SymfonyCmsBundle/app.css": "/app.css",
+  "bundles/SymfonyCmsBundle/app.js": "/app.js",
+  "bundles/SymfonyCmsBundle/runtime.js": "/runtime.js"
+}
