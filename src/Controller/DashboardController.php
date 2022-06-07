@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DashboardController extends AbstractController
 {
     #[Route('/', name: '_dashboard')]
-    public function index(Request $request, ): Response
+    public function index(Request $request): Response
     {
         return $this->render( '@SymfonyCms/dashboard/index.html.twig' );
     }
