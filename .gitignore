@@ -1,3 +1,13 @@
+###> symfony/framework-bundle ###
 node_modules
 vendor
-.idea
+###< symfony/framework-bundle ###
+
+###> phpstorm/idea ###
+/.idea/
+###< phpstorm/idea ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
+###< friendsofphp/php-cs-fixer ###
