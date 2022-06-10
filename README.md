@@ -45,6 +45,20 @@ Activate assets to have a stylized on admin :
 $ php bin/console assets:install
 ```
 
+## ➕ Optional
+
+### Fixtures
+
+If you want to add the fixtures from the bundle:
+
+```bash
+$ composer require --dev orm-fixtures
+$ composer require --dev fakerphp/faker
+
+# Load all fixtures :
+$ php bin/console doctrine:fixtures:load
+```
+
 ## ✍️ Authors
 
 Symfony CMS was originally created by [Brangerieau Thibaud](https://www.brangerieau-thibaud.fr).
