@@ -63,11 +63,12 @@ class Menu
      */
     public function getMenuItems(): Collection
     {
-        foreach ($this->menuItems as $key => $menuItem){
-            if($menuItem->getParent() !== null){
+        foreach ($this->menuItems as $key => $menuItem) {
+            if (null !== $menuItem->getParent()) {
                 $this->menuItems->remove($key);
             }
         }
+
         return $this->menuItems;
     }
 

@@ -12,21 +12,22 @@ class UserFixtures extends Fixture
 {
     public function __construct(
         protected UserPasswordHasherInterface $hasher
-    ){}
+    ) {
+    }
 
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create('en_EN');
 
-        $user = New User();
+        $user = new User();
         $user->setEmail('admin@symfony-cms.fr')
             ->setPassword($this->hasher->hashPassword($user, 'admin'))
             ->setRoles(['ROLE_ADMIN']);
 
         $manager->persist($user);
 
-        for ($u = 0; $u < 5; $u++){
-            $user = New User();
+        for ($u = 0; $u < 5; ++$u) {
+            $user = new User();
             $user->setEmail($faker->email())
                 ->setPassword($this->hasher->hashPassword($user, 'password'));
 
