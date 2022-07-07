@@ -1,8 +1,9 @@
 {
     "require": {
-        "symfony/webpack-encore-bundle": "^1.14"
+
     },
     "require-dev": {
+        "symfony/webpack-encore-bundle": "^1.14",
         "phpstan/phpstan": "^1.7",
         "friendsofphp/php-cs-fixer": "^3.8"
     }

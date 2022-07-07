@@ -45,6 +45,9 @@ Activate assets to have a stylized on admin :
 $ php bin/console assets:install
 ```
 
+TODO : security.yaml 
+-
+
 ## ➕ Optional
 
 ### Fixtures

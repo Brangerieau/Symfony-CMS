@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Admin - Login{% endblock %}</title>
+        <meta name="robots" content="noindex, nofollow">
+
+        <link rel="shortcut icon" href="{{ asset('/bundles/symfonycms/skote/images/favicon.ico') }}">
+
+        <!-- SKOTE -->
+        <link href="{{ asset('/bundles/symfonycms/skote/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('/bundles/symfonycms/skote/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('/bundles/symfonycms/skote/css/app.min.css') }}" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body data-sidebar="">
+
+        <div class="account-pages my-5 pt-sm-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
+        </div>
+        <!-- end account-pages -->
+
+        <!-- SKOTE -->
+        <script src="{{ asset('/bundles/symfonycms/skote/libs/jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('/bundles/symfonycms/skote/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('/bundles/symfonycms/skote/libs/metismenu/metisMenu.min.js') }}"></script>
+        <script src="{{ asset('/bundles/symfonycms/skote/libs/simplebar/simplebar.min.js') }}"></script>
+        <script src="{{ asset('/bundles/symfonycms/skote/libs/node-waves/waves.min.js') }}"></script>
+
+        <script src="{{ asset('/bundles/symfonycms/skote/js/app.js') }}"></script>
+    </body>
+</html>
