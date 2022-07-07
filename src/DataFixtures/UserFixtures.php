@@ -22,6 +22,8 @@ class UserFixtures extends Fixture
         $user = new User();
         $user->setEmail('admin@symfony-cms.fr')
             ->setPassword($this->hasher->hashPassword($user, 'admin'))
+            ->setLastname($faker->lastName())
+            ->setFirstname($faker->firstName())
             ->setRoles(['ROLE_ADMIN']);
 
         $manager->persist($user);
@@ -29,7 +31,9 @@ class UserFixtures extends Fixture
         for ($u = 0; $u < 5; ++$u) {
             $user = new User();
             $user->setEmail($faker->email())
-                ->setPassword($this->hasher->hashPassword($user, 'password'));
+                ->setPassword($this->hasher->hashPassword($user, 'password'))
+                ->setLastname($faker->lastName())
+                ->setFirstname($faker->firstName());
 
             $manager->persist($user);
         }
