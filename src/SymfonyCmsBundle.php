@@ -7,7 +7,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class SymfonyCmsBundle extends Bundle
 {
-    public const VERSION = '0.0.1';
+    public const VERSION = '0.1.0';
 
     /**
      * @return void
