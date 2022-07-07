@@ -6,7 +6,7 @@
 <body>
 
 <pre>
-<?= json_encode($_POST, JSON_PRETTY_PRINT); ?>
+<?php echo json_encode($_POST, JSON_PRETTY_PRINT); ?>
 </pre>
 	<form method="POST">
 		<input type="text" name="group[1][foo]" value="A"/>

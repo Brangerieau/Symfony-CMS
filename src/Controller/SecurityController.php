@@ -13,9 +13,9 @@ class SecurityController extends AbstractController
     #[Route(path: '/login', name: 'symfony_cms_login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-         if ($this->getUser()) {
-             return $this->redirectToRoute('symfony_cms_dashboard');
-         }
+        if ($this->getUser()) {
+            return $this->redirectToRoute('symfony_cms_dashboard');
+        }
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
@@ -24,7 +24,7 @@ class SecurityController extends AbstractController
 
         return $this->render('@SymfonyCms/security/login.html.twig', [
             'last_username' => $lastUsername,
-            'error' => $error
+            'error' => $error,
         ]);
     }
 
