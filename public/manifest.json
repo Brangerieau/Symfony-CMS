@@ -458,6 +458,7 @@
   "bundles/SymfonyCmsBundle/skote/libs/tinymce/plugins/importcss/plugin.min.js": "/skote/libs/tinymce/plugins/importcss/plugin.min.js",
   "bundles/SymfonyCmsBundle/skote/libs/moment/locale/fi.js": "/skote/libs/moment/locale/fi.js",
   "bundles/SymfonyCmsBundle/skote/libs/moment/locale/tg.js": "/skote/libs/moment/locale/tg.js",
+  "bundles/SymfonyCmsBundle/images/no-avatar.png": "/images/no-avatar.png",
   "bundles/SymfonyCmsBundle/skote/libs/moment/locale/mn.js": "/skote/libs/moment/locale/mn.js",
   "bundles/SymfonyCmsBundle/skote/libs/flot.curvedlines/flot/jquery.flot.canvas.min.js": "/skote/libs/flot.curvedlines/flot/jquery.flot.canvas.min.js",
   "bundles/SymfonyCmsBundle/skote/libs/moment/locale/lv.js": "/skote/libs/moment/locale/lv.js",
