@@ -63,6 +63,11 @@ Encore
         //pattern: /\.(png|jpg|jpeg)$/
     })
 
+    .copyFiles({
+        from: './assets/skote',
+        to: 'skote/[path][name].[ext]',
+    })
+
     // enables @babel/preset-env polyfills
     .configureBabelPresetEnv((config) => {
         config.useBuiltIns = 'usage';

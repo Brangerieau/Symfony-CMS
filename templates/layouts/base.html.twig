@@ -5,15 +5,108 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Admin{% endblock %}</title>
         <meta name="robots" content="noindex, nofollow">
-        <meta name="description" content="{% block meta_description %}Admin description{% endblock %}">
-    </head>
-    <body>
-        <div id="app">
 
-            <main class="main">
-                {% block body %}{% endblock %}
-            </main>
+        <link rel="shortcut icon" href="{{ asset('/bundles/symfonycms/skote/images/favicon.ico') }}">
+
+        <!-- SKOTE -->
+        <link href="{{ asset('/bundles/symfonycms/skote/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('/bundles/symfonycms/skote/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('/bundles/symfonycms/skote/css/app.min.css') }}" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body data-sidebar="">
+
+        <!-- Begin page -->
+        <div id="layout-wrapper">
+            <header id="page-topbar">
+                <div class="navbar-header">
+                    <div class="d-flex">
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box">
+
+                        </div>
+                        <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
+                            <i class="fa fa-fw fa-bars"></i>
+                        </button>
+                    </div>
+
+                    <div class="d-flex">
+                        {% include '@SymfonyCms/layouts/components/header-nav.html.twig' %}
+                    </div>
+                </div>
+            </header>
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="vertical-menu">
+                <div data-simplebar class="h-100">
+                    {% include '@SymfonyCms/layouts/components/nav.html.twig' %}
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <!-- body page -->
+                        {% block body %}
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                        <h4 class="mb-sm-0 font-size-18">Starter Page</h4>
+
+                                        <div class="page-title-right">
+                                            <ol class="breadcrumb m-0">
+                                                <li class="breadcrumb-item"><a href="javascript: void(0);">Utility</a></li>
+                                                <li class="breadcrumb-item active">Starter Page</li>
+                                            </ol>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        {% endblock %}
+                        <!-- end body page -->
+
+                    </div> <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+
+
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                2022 © SymfonyCms.
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-sm-end d-none d-sm-block">
+                                    Develop by Brangerieau Thibaud
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- end main content-->
 
         </div>
+        <!-- END layout-wrapper -->
+
+        <!-- Right bar overlay-->
+        <div class="rightbar-overlay"></div>
+
+        <!-- SKOTE -->
+        <script src="{{ asset('/bundles/symfonycms/skote/libs/jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('/bundles/symfonycms/skote/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('/bundles/symfonycms/skote/libs/metismenu/metisMenu.min.js') }}"></script>
+        <script src="{{ asset('/bundles/symfonycms/skote/libs/simplebar/simplebar.min.js') }}"></script>
+        <script src="{{ asset('/bundles/symfonycms/skote/libs/node-waves/waves.min.js') }}"></script>
+
+        <script src="{{ asset('/bundles/symfonycms/skote/js/app.js') }}"></script>
     </body>
 </html>

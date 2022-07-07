@@ -1,15 +1,15 @@
 <?php
+
 namespace Brangerieau\SymfonyCmsBundle;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class SymfonyCmsBundle extends Bundle {
-
-    public const VERSION = '0.0.1';
+class SymfonyCmsBundle extends Bundle
+{
+    public const VERSION = '0.1.0';
 
     /**
-     * @param ContainerBuilder $container
      * @return void
      */
     public function build(ContainerBuilder $container)
@@ -21,5 +21,4 @@ class SymfonyCmsBundle extends Bundle {
     {
         return dirname(__DIR__);
     }
-
 }
