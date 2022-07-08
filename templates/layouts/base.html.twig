@@ -12,6 +12,8 @@
         <link href="{{ asset('/bundles/symfonycms/skote/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('/bundles/symfonycms/skote/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('/bundles/symfonycms/skote/css/app.min.css') }}" rel="stylesheet" type="text/css" />
+
+        {% block stylesheets %}{% endblock %}
     </head>
 
     <body data-sidebar="">
@@ -106,6 +108,8 @@
         <script src="{{ asset('/bundles/symfonycms/skote/libs/metismenu/metisMenu.min.js') }}"></script>
         <script src="{{ asset('/bundles/symfonycms/skote/libs/simplebar/simplebar.min.js') }}"></script>
         <script src="{{ asset('/bundles/symfonycms/skote/libs/node-waves/waves.min.js') }}"></script>
+
+        {% block javascripts %}{% endblock %}
 
         <script src="{{ asset('/bundles/symfonycms/skote/js/app.js') }}"></script>
     </body>
