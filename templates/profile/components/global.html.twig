@@ -1,0 +1,66 @@
+<div class="col-xl-4">
+    <div class="card overflow-hidden">
+        <div class="bg-primary bg-soft">
+            <div class="row">
+                <div class="col-7">
+                    <div class="text-primary p-3">
+                        <h5 class="text-primary">Welcome Back !</h5>
+                        <p>You can edit your informations here</p>
+                    </div>
+                </div>
+                <div class="col-5 align-self-end">
+                    <img src="assets/images/profile-img.png" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+        <div class="card-body pt-0">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="avatar-md profile-user-wid mb-4">
+                        {% if profile.avatar %}
+                            <img src="{{ asset(profile.avatar) }}" alt="" class="img-thumbnail rounded-circle">
+                        {% else %}
+                            <img src="{{ asset('/bundles/symfonycms/images/no-avatar.png') }}" alt="" class="img-thumbnail rounded-circle">
+                        {% endif %}
+                    </div>
+                    <h5 class="font-size-15 text-truncate">{{ profile.firstname }} {{ profile.lastname }}</h5>
+                </div>
+
+                <div class="col-sm-8">
+                    <div class="pt-4">
+                        <div class="mt-4">
+                            {% if app.request.get('_route') ==  'symfony_cms_profile' %}
+                                <a href="{{ path('symfony_cms_profile_reset_password', {id: app.user.id}) }}" class="btn btn-primary waves-effect waves-light btn-sm">Change my password <i class="mdi mdi-arrow-right ms-1"></i></a>
+                            {% else %}
+                                <a href="{{ path('symfony_cms_profile', {id: app.user.id}) }}" class="btn btn-primary waves-effect waves-light btn-sm">Go back on profile <i class="mdi mdi-arrow-right ms-1"></i></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end card -->
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title mb-4">Personal Information</h4>
+
+            <div class="table-responsive">
+                <table class="table table-nowrap mb-0">
+                    <tbody>
+                    <tr>
+                        <th scope="row">Full Name :</th>
+                        <td>{{ profile.lastname }} {{ profile.firstname }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">E-mail :</th>
+                        <td>{{ profile.email }} </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- end card -->
+</div>

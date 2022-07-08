@@ -21,30 +21,34 @@ class EditUserType extends AbstractType
                 'required' => true,
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Enter your last name'
+                    'placeholder' => 'Enter your last name',
                 ],
+                'row_attr' => ['class' => 'mb-3'],
             ])
             ->add('firstname', TextType::class, [
                 'label' => 'First Name',
                 'required' => true,
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Enter your first name'
+                    'placeholder' => 'Enter your first name',
                 ],
+                'row_attr' => ['class' => 'mb-3'],
             ])
-            ->add('email', EmailType::class,[
+            ->add('email', EmailType::class, [
                 'label' => 'Email',
                 'required' => true,
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Enter your email'
+                    'placeholder' => 'Enter your email',
                 ],
+                'row_attr' => ['class' => 'mb-3'],
             ])
             ->add('avatar', FileType::class, [
                 'label' => 'Avatar',
                 'required' => false,
                 'attr' => ['class' => 'form-control'],
                 'mapped' => false,
+                'row_attr' => ['class' => 'mb-3'],
             ])
             ->add('save', SubmitType::class, [
                 'attr' => ['class' => 'btn btn-primary w-md'],
