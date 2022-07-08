@@ -1,3 +1,6 @@
+parameters:
+  avatar_directory: '/uploads/avatar'
+
 services:
   _defaults:
     autowire: true      # Automatically injects dependencies in your services.

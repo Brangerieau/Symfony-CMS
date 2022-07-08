@@ -37,7 +37,11 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="avatar-md profile-user-wid mb-4">
-                                <img src="{{ asset('/bundles/symfonycms/images/no-avatar.png') }}" alt="" class="img-thumbnail rounded-circle">
+                                {% if profile.avatar %}
+                                    <img src="{{ asset(profile.avatar) }}" alt="" class="img-thumbnail rounded-circle">
+                                {% else %}
+                                    <img src="{{ asset('/bundles/symfonycms/images/no-avatar.png') }}" alt="" class="img-thumbnail rounded-circle">
+                                {% endif %}
                             </div>
                             <h5 class="font-size-15 text-truncate">{{ profile.firstname }} {{ profile.lastname }}</h5>
                         </div>

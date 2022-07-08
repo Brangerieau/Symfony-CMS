@@ -44,7 +44,7 @@ class EditUserType extends AbstractType
                 'label' => 'Avatar',
                 'required' => false,
                 'attr' => ['class' => 'form-control'],
-                'disabled' => true
+                'mapped' => false,
             ])
             ->add('save', SubmitType::class, [
                 'attr' => ['class' => 'btn btn-primary w-md'],
