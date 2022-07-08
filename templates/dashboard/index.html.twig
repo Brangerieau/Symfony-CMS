@@ -1,16 +1,16 @@
 {% extends '@SymfonyCms/layouts/base.html.twig' %}
 
-{% block title %}Administration{% endblock %}
+{% block title %}{% trans from 'symfonycms' %}Administration{% endtrans %}{% endblock %}
 
 {% block body %}
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">Dashboard</h4>
+                <h4 class="mb-sm-0 font-size-18">{% trans from 'symfonycms' %}Dashboard{% endtrans %}</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item active">{% trans from 'symfonycms' %}Dashboard{% endtrans %}</li>
                     </ol>
                 </div>
 

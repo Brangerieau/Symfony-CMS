@@ -1,0 +1,33 @@
+'Last Name': Nom
+'Enter your last name': 'Entrez votre nom'
+'First Name': Prénom
+'Enter your first name': 'Entrez votre prénom'
+Email: Email
+'Enter your email': 'Entrez votre email'
+Avatar: Avatar
+Save: Enregistrer
+Profile: Profil
+'Edit your personal information': 'Modifiez vos informations personnelles'
+Administration: Administration
+Dashboard: 'Tableau de bord'
+'Develop by Brangerieau Thibaud': 'Développé par Brangerieau Thibaud'
+Logout: 'Se déconnecter'
+Menu: Menu
+'Reset password': 'Réinitialiser le mot de passe'
+'Edit your password': 'Editez votre mot de passe'
+'Log in!': Connexion!
+'Welcome Back !': 'Content de te revoir !'
+'Sign in to continue to SymfonyCms.': 'Connectez-vous pour continuer vers SymfonyCms.'
+'Forgot your password?': 'Mot de passe oublié?'
+'The password fields must match.': 'Les champs de mot de passe doivent correspondre.'
+'New Password': 'Nouveau mot de passe'
+'Enter your new password': 'Entrez votre nouveau mot de passe'
+'Repeat Password': 'Répéter le mot de passe'
+'Retype your new password': 'Retapez votre nouveau mot de passe'
+Modify: Modifier
+'You can edit your informations here': 'Vous pouvez modifier vos informations ici'
+'Change my password': 'Changer mon mot de passe'
+'Go back on profile': 'Revenir sur le profil'
+'Personal Information': 'Informations personnels'
+'Full Name :': 'Nom et prénom :'
+'Email :': 'Email :'

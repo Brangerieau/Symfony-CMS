@@ -1,6 +1,6 @@
 {% extends '@SymfonyCms/layouts/baseSecurity.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}{% trans from 'symfonycms' %}Log in!{% endtrans %}{% endblock %}
 
 {% block body %}
     <div class="col-md-8 col-lg-6 col-xl-5">
@@ -9,8 +9,8 @@
                 <div class="row">
                     <div class="col-8">
                         <div class="text-primary p-4">
-                            <h5 class="text-primary">Welcome Back !</h5>
-                            <p>Sign in to continue to SymfonyCms.</p>
+                            <h5 class="text-primary">{% trans from 'symfonycms' %}Welcome Back !{% endtrans %}</h5>
+                            <p>{% trans from 'symfonycms' %}Sign in to continue to SymfonyCms.{% endtrans %}</p>
                         </div>
                     </div>
                     <div class="col-4 align-self-end">
@@ -62,7 +62,7 @@
                         </div>
 
                         <div class="mt-4 text-center">
-                            <a href="#" class="text-muted"><i class="mdi mdi-lock me-1"></i> Forgot your password?</a>
+                            <a href="#" class="text-muted"><i class="mdi mdi-lock me-1"></i> {% trans from 'symfonycms' %}Forgot your password?{% endtrans %}</a>
                         </div>
                     </form>
                 </div>
