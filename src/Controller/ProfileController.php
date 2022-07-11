@@ -2,10 +2,11 @@
 
 namespace Brangerieau\SymfonyCmsBundle\Controller;
 
+use Brangerieau\SymfonyCmsBundle\Entity\User;
 use Brangerieau\SymfonyCmsBundle\Form\EditUserType;
 use Brangerieau\SymfonyCmsBundle\Form\ResetPasswordType;
-use Brangerieau\SymfonyCmsBundle\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,16 +19,14 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class ProfileController extends AbstractController
 {
     public function __construct(
-        private UserRepository $userRepository,
         private EntityManagerInterface $em
     ) {
     }
 
-    #[Route('/profile/{id}', name: '_profile', requirements: ['id' => '\d+'])]
-    public function index(Request $request, int $id, SluggerInterface $slugger): Response
+    #[Route('/profile/{user}', name: '_profile', requirements: ['user' => '\d+'])]
+    #[IsGranted('PROFILE_VIEW', 'user')]
+    public function index(Request $request, User $user, SluggerInterface $slugger): Response
     {
-        $user = $this->userRepository->find($id);
-
         $form = $this->createForm(EditUserType::class, $user);
         $form->handleRequest($request);
 
@@ -57,11 +56,10 @@ class ProfileController extends AbstractController
         ]);
     }
 
-    #[Route('/profile/{id}/reset-password', name: '_profile_reset_password', requirements: ['id' => '\d+'])]
-    public function reset_password(Request $request, int $id, UserPasswordHasherInterface $hasher): Response
+    #[Route('/profile/{user}/reset-password', name: '_profile_reset_password', requirements: ['user' => '\d+'])]
+    #[IsGranted('PROFILE_EDIT', 'user')]
+    public function reset_password(Request $request, User $user, UserPasswordHasherInterface $hasher): Response
     {
-        $user = $this->userRepository->find($id);
-
         $form = $this->createForm(ResetPasswordType::class, $user);
         $form->handleRequest($request);
 

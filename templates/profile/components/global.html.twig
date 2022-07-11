@@ -30,11 +30,13 @@
                     <div class="pt-4">
                         <div class="mt-4">
                             {% if app.request.get('_route') ==  'symfony_cms_profile' %}
-                                <a href="{{ path('symfony_cms_profile_reset_password', {id: app.user.id}) }}" class="btn btn-primary waves-effect waves-light btn-sm">
-                                    {% trans from 'symfonycms' %}Change my password{% endtrans %} <i class="mdi mdi-arrow-right ms-1"></i>
-                                </a>
+                                {% if is_granted('PROFILE_EDIT', profile) %}
+                                    <a href="{{ path('symfony_cms_profile_reset_password', {user: profile.id}) }}" class="btn btn-primary waves-effect waves-light btn-sm">
+                                        {% trans from 'symfonycms' %}Change my password{% endtrans %} <i class="mdi mdi-arrow-right ms-1"></i>
+                                    </a>
+                                {% endif %}
                             {% else %}
-                                <a href="{{ path('symfony_cms_profile', {id: app.user.id}) }}" class="btn btn-primary waves-effect waves-light btn-sm">
+                                <a href="{{ path('symfony_cms_profile', {user: profile.id}) }}" class="btn btn-primary waves-effect waves-light btn-sm">
                                     {% trans from 'symfonycms' %}Go back on profile{% endtrans %} <i class="mdi mdi-arrow-right ms-1"></i>
                                 </a>
                             {% endif %}

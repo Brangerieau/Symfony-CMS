@@ -19,14 +19,23 @@ class UserFixtures extends Fixture
     {
         $faker = Factory::create('en_EN');
 
-        $user = new User();
-        $user->setEmail('admin@symfony-cms.fr')
-            ->setPassword($this->hasher->hashPassword($user, 'admin'))
+        $super_admin = new User();
+        $super_admin->setEmail('superadmin@symfony-cms.fr')
+            ->setPassword($this->hasher->hashPassword($super_admin, 'super'))
+            ->setLastname($faker->lastName())
+            ->setFirstname($faker->firstName())
+            ->setRoles(['ROLE_SUPER_ADMIN', 'ROLE_ADMIN']);
+
+        $manager->persist($super_admin);
+
+        $admin = new User();
+        $admin->setEmail('admin@symfony-cms.fr')
+            ->setPassword($this->hasher->hashPassword($admin, 'admin'))
             ->setLastname($faker->lastName())
             ->setFirstname($faker->firstName())
             ->setRoles(['ROLE_ADMIN']);
 
-        $manager->persist($user);
+        $manager->persist($admin);
 
         for ($u = 0; $u < 5; ++$u) {
             $user = new User();

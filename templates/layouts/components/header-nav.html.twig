@@ -18,7 +18,7 @@
     </button>
     <div class="dropdown-menu dropdown-menu-end">
         <!-- item-->
-        <a class="dropdown-item" href="{{ path('symfony_cms_profile', {id: app.user.id}) }}">
+        <a class="dropdown-item" href="{{ path('symfony_cms_profile', {user: app.user.id}) }}">
             <i class="bx bx-user font-size-16 align-middle me-1"></i>
             <span key="t-profile">{% trans from 'symfonycms' %}Profile{% endtrans %}</span>
         </a>
