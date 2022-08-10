@@ -37,7 +37,7 @@ class UserFixtures extends Fixture
 
         $manager->persist($admin);
 
-        for ($u = 0; $u < 5; ++$u) {
+        for ($u = 0; $u < 15; ++$u) {
             $user = new User();
             $user->setEmail($faker->email())
                 ->setPassword($this->hasher->hashPassword($user, 'password'))

@@ -38,14 +38,14 @@
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
                         <div class="mb-3">
-                            <label for="username" class="form-label">Email</label>
-                            <input type="email" value="{{ last_username }}" name="email" class="form-control" id="username" autocomplete="email" required autofocus placeholder="Enter email">
+                            <label for="username" class="form-label">{% trans from 'symfonycms' %}Email{% endtrans %}</label>
+                            <input type="email" value="{{ last_username }}" name="email" class="form-control" id="username" autocomplete="email" required autofocus placeholder="{% trans from 'symfonycms' %}Enter email{% endtrans %}">
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Password</label>
+                            <label class="form-label">{% trans from 'symfonycms' %}Password{% endtrans %}</label>
                             <div class="input-group auth-pass-inputgroup">
-                                <input type="password" name="password" class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon">
+                                <input type="password" name="password" class="form-control" placeholder="{% trans from 'symfonycms' %}Enter password{% endtrans %}" aria-label="Password" aria-describedby="password-addon">
                                 <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
                             </div>
                         </div>
@@ -53,17 +53,20 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="remember-check" name="_remember_me">
                             <label class="form-check-label" for="remember-check">
-                                Remember me
+                                {% trans from 'symfonycms' %}Remember me{% endtrans %}
                             </label>
                         </div>
 
                         <div class="mt-3 d-grid">
-                            <button class="btn btn-primary waves-effect waves-light" type="submit">Log In</button>
+                            <button class="btn btn-primary waves-effect waves-light" type="submit">{% trans from 'symfonycms' %}Log In{% endtrans %}</button>
                         </div>
 
-                        <div class="mt-4 text-center">
-                            <a href="#" class="text-muted"><i class="mdi mdi-lock me-1"></i> {% trans from 'symfonycms' %}Forgot your password?{% endtrans %}</a>
-                        </div>
+                        {% if reset_password %}
+                            <div class="mt-4 text-center">
+                                <a href="{{ path('app_forgot_password_request') }}" class="text-muted"><i class="mdi mdi-lock me-1"></i> {% trans from 'symfonycms' %}Forgot your password?{% endtrans %}</a>
+                            </div>
+                        {% endif %}
+
                     </form>
                 </div>
 

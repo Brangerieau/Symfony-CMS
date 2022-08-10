@@ -11,6 +11,17 @@
             </a>
         </li>
 
+        {% if is_granted('ROLE_SUPER_ADMIN') or is_granted('ROLE_ADMIN') %}
+            <li class="menu-title" key="t-menu">{% trans from 'symfonycms' %}Administration{% endtrans %}</li>
+
+            <li>
+                <a href="{{ path('symfony_cms_users') }}" class="waves-effect">
+                    <i class="bx bxs-user-detail"></i>
+                    <span key="t-dashboards">{% trans from 'symfonycms' %}Users{% endtrans %}</span>
+                </a>
+            </li>
+        {% endif %}
+
     </ul>
 </div>
 <!-- Sidebar -->

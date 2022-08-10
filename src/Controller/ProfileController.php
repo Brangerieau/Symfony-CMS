@@ -25,7 +25,7 @@ class ProfileController extends AbstractController
 
     #[Route('/profile/{user}', name: '_profile', requirements: ['user' => '\d+'])]
     #[IsGranted('PROFILE_VIEW', 'user')]
-    public function index(Request $request, User $user, SluggerInterface $slugger): Response
+    public function index(Request $request, User $user): Response
     {
         $form = $this->createForm(EditUserType::class, $user);
         $form->handleRequest($request);

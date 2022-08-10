@@ -1,0 +1,16 @@
+{% extends layout %}
+
+{% import "mails/macros.twig" as e %}
+
+{% block body %}
+
+        {% trans from 'symfonycms' %}To reset your password, please visit the following link{% endtrans %}<br>
+
+        {% trans from 'symfonycms' %}This link will expire in{% endtrans %} {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.<br><br>
+
+        <a href="{{ url('app_reset_password', {token: resetToken.token}) }}"
+                style="color: #fff; background-color: #556ee6; border-color: #556ee6; padding: 0.47rem 0.75rem; border-radius: 0.25rem; font-weight: 400; margin-top: 1rem; text-decoration: none;">
+                {% trans from 'symfonycms' %}Reset my password{% endtrans %}
+        </a>
+
+{% endblock %}

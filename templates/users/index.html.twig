@@ -1,0 +1,117 @@
+{% extends '@SymfonyCms/layouts/base.html.twig' %}
+
+{% block title %}{% trans from 'symfonycms' %}Administration{% endtrans %}{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 class="mb-sm-0 font-size-18">{% trans from 'symfonycms' %}Users{% endtrans %}</h4>
+
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item active">{% trans from 'symfonycms' %}Users{% endtrans %}</li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    {{ component('flashMessage') }}
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table align-middle table-nowrap table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col" style="width: 70px;">#</th>
+                                    <th scope="col">{% trans from 'symfonycms' %}Name{% endtrans %}</th>
+                                    <th scope="col">{% trans from 'symfonycms' %}Email{% endtrans %}</th>
+                                    <th scope="col">{% trans from 'symfonycms' %}Roles{% endtrans %}</th>
+                                    <th scope="col">{% trans from 'symfonycms' %}Actions{% endtrans %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for user in users %}
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                {% if user.avatar %}
+                                                    <img src="{{ asset(user.avatar) }}" alt="" class="rounded-circle avatar-xs">
+                                                {% else %}
+                                                    <img src="{{ asset('/bundles/symfonycms/images/no-avatar.png') }}" alt="" class="rounded-circle avatar-xs">
+                                                {% endif %}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5 class="font-size-14 mb-1 text-dark">{{ user.lastname }} {{ user.firstname }}</h5>
+                                        </td>
+                                        <td>{{ user.email }}</td>
+                                        <td>
+                                            <div>
+                                                {% for role in user.roles %}
+                                                    <div class="badge badge-soft-primary font-size-11 m-1">{{ role }}</div>
+                                                {% endfor %}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <ul class="list-inline font-size-20 contact-links mb-0">
+                                                {% if app.user != user %}
+                                                    <li class="list-inline-item px-2">
+                                                        <a href="{{ path('symfony_cms_users_update', {user: user.id}) }}" title="{% trans from 'symfonycms' %}Edit{% endtrans %}"><i class="bx red bx-edit"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item px-2">
+                                                        <a href="{{ path('symfony_cms_users_delete', {user: user.id}) }}" title="{% trans from 'symfonycms' %}Delete{% endtrans %}" class="sa-delete"><i class="bx bx-trash"></i></a>
+                                                    </li>
+                                                    {% if reset_password %}
+                                                        <li class="list-inline-item px-2">
+                                                            <a href="{{ path('symfony_cms_users_reset_password', {user: user.id}) }}" title="{% trans from 'symfonycms' %}Reset password{% endtrans %}" class="sa-reset-password"><i class="bx bx-lock-open-alt"></i></a>
+                                                        </li>
+                                                    {% endif %}
+
+                                                {% endif %}
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {{ knp_pagination_render(users, '@SymfonyCms/components/pagination.html.twig') }}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        //Delete Message
+        $('.sa-delete').click(function (e) {
+            let href = $(this).attr('href');
+            e.preventDefault();
+            Swal.fire({
+                title: "{% trans from 'symfonycms' %}Are you sure?{% endtrans %}",
+                text: "{% trans from 'symfonycms' %}You won't be able to revert this!{% endtrans %}",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#34c38f",
+                cancelButtonColor: "#f46a6a",
+                confirmButtonText: "{% trans from 'symfonycms' %}Yes, delete !{% endtrans %}",
+                cancelButtonText: "{% trans from 'symfonycms' %}Cancel{% endtrans %}"
+            }).then(function (result) {
+                if (result.value) {
+                    window.location.href = href;
+                }
+            });
+        });
+    </script>
+{% endblock %}

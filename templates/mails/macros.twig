@@ -1,0 +1,44 @@
+{%- macro button(title, url, type = 'primary') -%}
+    {%- if format == 'html' -%}
+        <table class="action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+            <tr>
+                <td align="center">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
+                        <tr>
+                            <td align="center">
+                                <table border="0" cellpadding="0" cellspacing="0" role="presentation">
+                                    <tr>
+                                        <td>
+                                            <a href="{{- url -}}" class="btn btn-{{- type ?? 'primary' -}}" target="_blank"
+                                               rel="noopener">{{- title -}}</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    {%- else -%}
+        {{~ title }} : {{ url ~}}
+    {%- endif -%}
+{%- endmacro -%}
+
+{%- macro title(type, title) -%}
+    {%- if format == 'html' -%}
+        <h{{ type }}>{{ title }}</h{{ type }}>
+    {%- else -%}
+        {{~ title }}
+    {%- endif -%}
+{%- endmacro -%}
+
+{%- macro n() -%}
+    {%- if format == 'html' -%}
+        <br>
+    {%- else -%}
+
+
+    {%- endif -%}
+{%- endmacro -%}
+

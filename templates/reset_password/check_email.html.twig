@@ -1,0 +1,51 @@
+{% extends '@SymfonyCms/layouts/baseSecurity.html.twig' %}
+
+{% block title %}{% trans from 'symfonycms' %}Password Reset Email Sent{% endtrans %}{% endblock %}
+
+{% block body %}
+    <div class="col-md-8 col-lg-6 col-xl-5">
+        <div class="card overflow-hidden">
+            <div class="bg-primary bg-soft">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="text-primary p-4">
+                            <h5 class="text-primary">{% trans from 'symfonycms' %}Forgot your password !{% endtrans %}</h5>
+                            <p>{% trans from 'symfonycms' %}Reset your password.{% endtrans %}</p>
+                        </div>
+                    </div>
+                    <div class="col-4 align-self-end">
+                        <img src="assets/images/profile-img.png" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            <div class="card-body pt-0">
+                <div class="auth-logo">
+                    <a href="#" class="auth-logo-dark">
+                        <div class="avatar-md profile-user-wid mb-4">
+                            <span class="avatar-title rounded-circle bg-light">
+                                <img src="assets/images/logo.svg" alt="" class="rounded-circle" height="34">
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                <div class="p-2">
+
+                    <p>
+                        {% trans from 'symfonycms' %}If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.{% endtrans %}
+                        {% trans from 'symfonycms' %}This link will expire in{% endtrans %} {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+                    </p>
+                    <p>{% trans from 'symfonycms' %}If you don't receive an email please check your spam folder or{% endtrans %} <a href="{{ path('app_forgot_password_request') }}">{% trans from 'symfonycms' %}try again{% endtrans %}</a>.</p>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="mt-5 text-center">
+
+            <div>
+                <p>© 2022 SymfonyCms.</p>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

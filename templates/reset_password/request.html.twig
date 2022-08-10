@@ -1,0 +1,72 @@
+{% extends '@SymfonyCms/layouts/baseSecurity.html.twig' %}
+
+{% block title %}{% trans from 'symfonycms' %}Reset your password{% endtrans %}{% endblock %}
+
+{% block body %}
+    <div class="col-md-8 col-lg-6 col-xl-5">
+        <div class="card overflow-hidden">
+            <div class="bg-primary bg-soft">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="text-primary p-4">
+                            <h5 class="text-primary">{% trans from 'symfonycms' %}Forgot your password !{% endtrans %}</h5>
+                            <p>{% trans from 'symfonycms' %}Reset your password.{% endtrans %}</p>
+                        </div>
+                    </div>
+                    <div class="col-4 align-self-end">
+                        <img src="assets/images/profile-img.png" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            <div class="card-body pt-0">
+                <div class="auth-logo">
+                    <a href="#" class="auth-logo-dark">
+                        <div class="avatar-md profile-user-wid mb-4">
+                            <span class="avatar-title rounded-circle bg-light">
+                                <img src="assets/images/logo.svg" alt="" class="rounded-circle" height="34">
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                <div class="p-2">
+
+                    {{ form_start(requestForm) }}
+
+                    {% for flash_error in app.flashes('reset_password_error') %}
+                        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+                    {% endfor %}
+
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                    <div class="mb-3">
+                        {{ form_label(requestForm.email, null ,{'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(requestForm.email, {'attr': {'class': 'form-control'}}) }}
+
+                        {% if form_errors(requestForm.email) is not empty %}
+                            <div class="text-danger mt-3">
+                                {{ form_errors(requestForm.email) }}
+                            </div>
+                        {% endif %}
+
+                    </div>
+
+                    <div class="mt-3 d-grid">
+                        <button class="btn btn-primary waves-effect waves-light" type="submit">
+                            {% trans from 'symfonycms' %}Send password reset email{% endtrans %}
+                        </button>
+                    </div>
+
+                    {{ form_end(requestForm) }}
+                </div>
+
+            </div>
+        </div>
+        <div class="mt-5 text-center">
+
+            <div>
+                <p>© 2022 SymfonyCms.</p>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

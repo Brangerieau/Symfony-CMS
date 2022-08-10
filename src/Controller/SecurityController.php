@@ -25,6 +25,7 @@ class SecurityController extends AbstractController
         return $this->render('@SymfonyCms/security/login.html.twig', [
             'last_username' => $lastUsername,
             'error' => $error,
+            'reset_password' => class_exists('SymfonyCasts\Bundle\ResetPassword\DependencyInjection\SymfonyCastsResetPasswordExtension')
         ]);
     }
 
