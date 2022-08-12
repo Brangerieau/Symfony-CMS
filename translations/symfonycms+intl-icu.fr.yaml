@@ -31,3 +31,39 @@ Modify: Modifier
 'Personal Information': 'Informations personnels'
 'Full Name :': 'Nom et prénom :'
 'Email :': 'Email :'
+Users: Utilisateurs
+Name: Nom
+Roles: Roles
+Actions: Actions
+'Are you sure?': 'Êtes-vous sûr?'
+"You won't be able to revert this!": "Vous ne pourrez pas revenir en arrière\_!"
+Cancel: Annuler
+Edit: Editer
+Delete: Supprimer
+'Yes, delete !': 'Oui, supprimez !'
+'User {name} has been deleted!': "L'utilisateur {name} a été supprimé!"
+'An email has been sent to {name} to change his password': 'Un mail a été envoyé à {name} pour changer son mot de passe'
+'Edit user': "Modifier l'utilisateur"
+'{name} has been modified': '{name} a été modifié'
+'To reset your password, please visit the following link': 'Pour réinitialiser votre mot de passe, veuillez visiter le lien suivant'
+'This link will expire in': 'Ce lien expirera dans'
+'Password Reset Email Sent': 'E-mail de réinitialisation du mot de passe envoyé'
+'Forgot your password !': 'Mot de passe oublié !'
+'Reset your password.': 'Réinitialisez votre mot de passe.'
+'If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.': "Si un compte correspondant à votre adresse e-mail existe, un e-mail vient d'être envoyé contenant un lien que vous pouvez utiliser pour réinitialiser votre mot de passe."
+"If you don't receive an email please check your spam folder or": "Si vous ne recevez pas d'e-mail, veuillez vérifier votre dossier spam ou"
+'try again': réessayer
+'Reset your password': 'réinitialisez votre mot de passe'
+'Send password reset email': 'Envoyer un e-mail de réinitialisation du mot de passe'
+'No reset password token found in the URL or in the session.': "Aucun jeton de réinitialisation du mot de passe trouvé dans l'URL ou dans la session."
+'An error occurred while generating the token': "Une erreur s'est produite lors de la génération du jeton"
+'Please enter a password': 'Veuillez entrer un mot de passe'
+'Your password should be at least {limit} characters': 'Votre mot de passe doit comporter au moins {limit} caractères'
+'New password': 'Nouveau mot de passe'
+'Please enter your email': 'Veuillez saisir votre e-mail'
+'Reset my password': 'Réinitialiser mon mot de passe'
+Password: 'Mot de passe'
+'Remember me': 'Se souvenir de moi'
+'Log In': 'Se connecter'
+'Enter email': "Entrez l'Email"
+'Enter password': 'Entrer le mot de passe'
