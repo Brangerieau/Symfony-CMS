@@ -11,6 +11,13 @@
             </a>
         </li>
 
+        <li>
+            <a href="{{ path('symfony_cms_pages') }}" class="waves-effect">
+                <i class="bx bx-file-blank"></i>
+                <span key="t-dashboards">{% trans from 'symfonycms' %}Pages{% endtrans %}</span>
+            </a>
+        </li>
+
         {% if is_granted('ROLE_SUPER_ADMIN') or is_granted('ROLE_ADMIN') %}
             <li class="menu-title" key="t-menu">{% trans from 'symfonycms' %}Administration{% endtrans %}</li>
 

@@ -1,0 +1,28 @@
+{% block visual_editor_widget %}
+
+    {% set attr = attr | merge({class: 'visualeditor_button ' ~ attr.class}) %}
+
+    <button type="button" class="{{ attr.class }}">{{ button }}</button>
+    <visual-editor
+            hidden
+            id="{{ id }}"
+            name="{{ full_name }}"
+            value="{{ value  }}"
+            iconsURL="{{ asset('/visualeditor/blocks/[name].svg') }}";
+            preview="{{ path('symfony_cms_visual_editor_preview') }}"
+    ></visual-editor>
+
+    <script>
+        const visualEditorButton = document.querySelector(".visualeditor_button");
+        const visualEditor = document.querySelector("visual-editor");
+
+        visualEditorButton.addEventListener("click", () => {
+            visualEditor.toggleAttribute("hidden");
+        });
+
+        visualEditor.addEventListener("close", () => {
+            visualEditor.toggleAttribute("hidden");
+        });
+    </script>
+
+{% endblock %}

@@ -3,6 +3,7 @@
     "app": {
       "js": [
         "/runtime.js",
+        "/vendors-node_modules_boxraiser_visual-editor_VisualEditor_js.js",
         "/app.js"
       ],
       "css": [

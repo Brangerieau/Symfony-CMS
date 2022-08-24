@@ -1,0 +1,7 @@
+{% block content %}
+    <div id="ve-components">
+        {% for block in blocks %}
+            {% include '@SymfonyCms/visualeditor/blocks/' ~ block._name ~ '.html.twig' with block %}
+        {% endfor %}
+    </div>
+{% endblock %}

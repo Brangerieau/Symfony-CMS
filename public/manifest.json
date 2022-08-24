@@ -1221,5 +1221,6 @@
   "bundles/SymfonyCmsBundle/skote/libs/moment/ender.js": "/skote/libs/moment/ender.js",
   "bundles/SymfonyCmsBundle/skote/js/pages/jquery-knob.init.js": "/skote/js/pages/jquery-knob.init.js",
   "bundles/SymfonyCmsBundle/skote/js/pages/ecommerce-select2.init.js": "/skote/js/pages/ecommerce-select2.init.js",
-  "bundles/SymfonyCmsBundle/skote/libs/gmaps/yarn-error.log": "/skote/libs/gmaps/yarn-error.log"
+  "bundles/SymfonyCmsBundle/skote/libs/gmaps/yarn-error.log": "/skote/libs/gmaps/yarn-error.log",
+  "bundles/SymfonyCmsBundle/vendors-node_modules_boxraiser_visual-editor_VisualEditor_js.js": "/vendors-node_modules_boxraiser_visual-editor_VisualEditor_js.js"
 }

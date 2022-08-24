@@ -1,0 +1,115 @@
+{% extends '@SymfonyCms/layouts/base.html.twig' %}
+
+{% block title %}{% trans from 'symfonycms' %}Administration{% endtrans %}{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                <div class="d-sm-flex align-items-center">
+                    <h4 class="mb-sm-0 font-size-18">{% trans from 'symfonycms' %}Pages{% endtrans %}</h4>
+
+                    <a href="{{ path('symfony_cms_pages_add') }}" class="btn btn-primary waves-effect waves-light ms-3">
+                        <i class="bx bx-plus font-size-16 align-middle me-2"></i>{% trans from 'symfonycms' %}Add{% endtrans %}
+                    </a>
+                </div>
+
+
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item active">{% trans from 'symfonycms' %}Pages{% endtrans %}</li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    {{ component('flashMessage') }}
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table align-middle table-nowrap table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col" style="width: 70px;">#</th>
+                                    <th scope="col">{% trans from 'symfonycms' %}Name{% endtrans %}</th>
+                                    <th scope="col">{% trans from 'symfonycms' %}Slug{% endtrans %}</th>
+                                    <th scope="col">{% trans from 'symfonycms' %}Author{% endtrans %}</th>
+                                    <th scope="col">{% trans from 'symfonycms' %}Visible{% endtrans %}</th>
+                                    <th scope="col">{% trans from 'symfonycms' %}Actions{% endtrans %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for page in pages %}
+                                <tr>
+                                    <td>
+                                        <div>
+                                            {{ page.id }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <h5 class="font-size-14 mb-1 text-dark">{{ page.name }}</h5>
+                                    </td>
+                                    <td>
+                                        {{ page.slug }}
+                                    </td>
+                                    <td>
+                                        {{ page.author.lastname ~ ' ' ~ page.author.firstname|first|upper }}.
+                                    </td>
+                                    <td>
+                                        <div style="display: flex;">
+                                            <div class="ms-2" style="background: {% if page.visible %}#34c38f{% else %}#f46a6a{% endif %}; width: 10px; height: 10px; border-radius: 50%; "></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <ul class="list-inline font-size-20 contact-links mb-0">
+                                            <li class="list-inline-item px-2">
+                                                <a href="{{ path('symfony_cms_pages_update', {page: page.id}) }}" title="{% trans from 'symfonycms' %}Edit{% endtrans %}"><i class="bx red bx-edit"></i></a>
+                                            </li>
+                                            <li class="list-inline-item px-2">
+                                                <a href="{{ path('symfony_cms_pages_delete', {page: page.id}) }}" title="{% trans from 'symfonycms' %}Delete{% endtrans %}" class="sa-delete"><i class="bx bx-trash"></i></a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {{ knp_pagination_render(pages, '@SymfonyCms/components/pagination.html.twig') }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        //Delete Message
+        $('.sa-delete').click(function (e) {
+            let href = $(this).attr('href');
+            e.preventDefault();
+            Swal.fire({
+                title: "{% trans from 'symfonycms' %}Are you sure?{% endtrans %}",
+                text: "{% trans from 'symfonycms' %}You won't be able to revert this!{% endtrans %}",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#34c38f",
+                cancelButtonColor: "#f46a6a",
+                confirmButtonText: "{% trans from 'symfonycms' %}Yes, delete !{% endtrans %}",
+                cancelButtonText: "{% trans from 'symfonycms' %}Cancel{% endtrans %}"
+            }).then(function (result) {
+                if (result.value) {
+                    window.location.href = href;
+                }
+            });
+        });
+    </script>
+{% endblock %}

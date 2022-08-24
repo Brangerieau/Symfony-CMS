@@ -67,3 +67,19 @@ Password: 'Mot de passe'
 'Log In': 'Se connecter'
 'Enter email': "Entrez l'Email"
 'Enter password': 'Entrer le mot de passe'
+Pages: Pages
+Slug: Slug
+Author: Auteur
+SEO: SEO
+'Page {name} has been deleted!': 'La page {name} a été supprimé!'
+Add: Ajouter
+Visible: Visible
+'Add page': 'Ajouter une page'
+'Page details': 'Détails de la page'
+'Page {name} has been modified': 'La page {name} a été modifiée'
+'Enter page name': 'Entrez le nom de la page'
+'Display editor': "Afficher l'éditeur"
+'Short content': 'Contenu court'
+'Enter short page content': 'Saisir un contenu de page court'
+'Meta description': 'Meta description'
+'Enter page meta description': 'Saisir la méta description de la page'

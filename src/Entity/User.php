@@ -3,6 +3,8 @@
 namespace Brangerieau\SymfonyCmsBundle\Entity;
 
 use Brangerieau\SymfonyCmsBundle\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -32,6 +34,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $avatar;
+
+    #[ORM\OneToMany(mappedBy: 'author', targetEntity: Pages::class)]
+    private Collection $pages;
+
+    public function __construct()
+    {
+        $this->pages = new ArrayCollection();
+    }
 
     public function getId(): int
     {
@@ -137,5 +147,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * @return Collection<int, Pages>
+     */
+    public function getPages(): Collection
+    {
+        return $this->pages;
+    }
+
+    public function addPage(Pages $page): self
+    {
+        if (!$this->pages->contains($page)) {
+            $this->pages->add($page);
+            $page->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removePage(Pages $page): self
+    {
+        if ($this->pages->removeElement($page)) {
+            // set the owning side to null (unless already changed)
+            if ($page->getAuthor() === $this) {
+                $page->setAuthor(null);
+            }
+        }
+
+        return $this;
     }
 }
