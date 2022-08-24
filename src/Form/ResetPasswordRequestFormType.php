@@ -11,7 +11,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ResetPasswordRequestFormType extends AbstractType
 {
-
     public function __construct(
         private TranslatorInterface $translator
     ) {

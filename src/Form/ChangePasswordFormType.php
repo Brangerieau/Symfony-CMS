@@ -13,7 +13,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ChangePasswordFormType extends AbstractType
 {
-
     public function __construct(
         private TranslatorInterface $translator
     ) {

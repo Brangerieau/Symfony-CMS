@@ -18,13 +18,12 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[Route('/admin/pages', name: 'symfony_cms_pages')]
 class PagesController extends AbstractController
 {
-
     public function __construct(
         private PagesRepository $pagesRepository,
         private TranslatorInterface $translator,
         private EntityManagerInterface $manager,
         private SluggerInterface $slugger
-    ){
+    ) {
     }
 
     #[Route('/', name: '')]
@@ -37,7 +36,7 @@ class PagesController extends AbstractController
         );
 
         return $this->render('@SymfonyCms/pages/index.html.twig', [
-            'pages' => $pages
+            'pages' => $pages,
         ]);
     }
 
@@ -45,14 +44,13 @@ class PagesController extends AbstractController
     #[Route('/{page}/update', name: '_update')]
     public function update(Request $request, Pages $page = null): Response
     {
-        $page = ($page)? $page : new Pages();
+        $page = ($page) ? $page : new Pages();
 
         $form = $this->createForm(PagesType::class, $page);
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
-
-            if( $request->attributes->get('_route') === 'symfony_cms_pages_add' ){
+            if ('symfony_cms_pages_add' === $request->attributes->get('_route')) {
                 $page->setAuthor($this->getUser());
             }
             $page->setSlug(strtolower($this->slugger->slug($page->getName())));
@@ -65,14 +63,14 @@ class PagesController extends AbstractController
                 $this->translator->trans('Page {name} has been modified', ['{name}' => $page->getName()], 'symfonycms')
             );
 
-            if( $request->attributes->get('_route') === 'symfony_cms_pages_add' ){
+            if ('symfony_cms_pages_add' === $request->attributes->get('_route')) {
                 return $this->redirectToRoute('symfony_cms_pages_update', ['page' => $page->getId()]);
             }
         }
 
         return $this->render('@SymfonyCms/pages/update.html.twig', [
             'page' => $page,
-            'form' => $form->createView()
+            'form' => $form->createView(),
         ]);
     }
 

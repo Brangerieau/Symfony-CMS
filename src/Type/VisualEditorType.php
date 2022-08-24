@@ -13,7 +13,7 @@ class VisualEditorType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-           'required' => false
+           'required' => false,
         ]);
     }
 
@@ -32,5 +32,4 @@ class VisualEditorType extends AbstractType
     {
         return TextareaType::class;
     }
-
 }

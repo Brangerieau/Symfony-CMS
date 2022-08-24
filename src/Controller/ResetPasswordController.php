@@ -30,7 +30,7 @@ class ResetPasswordController extends AbstractController
         private EntityManagerInterface $entityManager,
         private TranslatorInterface $translator,
         private Mailing $mailing
-    ){
+    ) {
     }
 
     /**
@@ -88,9 +88,7 @@ class ResetPasswordController extends AbstractController
 
         $token = $this->getTokenFromSession();
         if (null === $token) {
-            throw $this->createNotFoundException(
-                $this->translator->trans('No reset password token found in the URL or in the session.', [], 'symfonycms')
-            );
+            throw $this->createNotFoundException($this->translator->trans('No reset password token found in the URL or in the session.', [], 'symfonycms'));
         }
 
         try {
@@ -147,7 +145,6 @@ class ResetPasswordController extends AbstractController
         try {
             $resetToken = $this->resetPasswordHelper->generateResetToken($user);
         } catch (ResetPasswordExceptionInterface $e) {
-
             $this->addFlash('danger',
                 $this->translator->trans('An error occurred while generating the token', [], 'symfonycms')
             );
@@ -156,7 +153,7 @@ class ResetPasswordController extends AbstractController
         }
 
         $email = $this->mailing->create($user->getEmail(), '@SymfonyCms/mails/reset-password/email.html.twig', [
-            'resetToken' => $resetToken
+            'resetToken' => $resetToken,
         ], new Address('resetpassword@symfonnycms.fr', $this->translator->trans('Reset password', [], 'symfonycms')));
 
         $this->mailing->send($email);

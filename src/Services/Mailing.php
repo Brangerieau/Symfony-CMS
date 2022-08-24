@@ -23,12 +23,9 @@ class Mailing
     }
 
     /**
-     * @param string $to
-     * @param string $template
      * @param array<string, mixed> $data
-     * @param string $from
-     * @param string $reply
-     * @return Email
+     * @param string               $from
+     *
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
@@ -46,7 +43,7 @@ class Mailing
             ->html($html)
             ->text($text);
 
-        if(!empty($reply)){
+        if (!empty($reply)) {
             $email->replyTo($reply);
         }
 

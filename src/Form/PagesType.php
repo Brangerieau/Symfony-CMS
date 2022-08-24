@@ -6,8 +6,6 @@ use Brangerieau\SymfonyCmsBundle\Entity\Pages;
 use Brangerieau\SymfonyCmsBundle\Type\VisualEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -60,7 +58,7 @@ class PagesType extends AbstractType
                 'label' => $this->translator->trans('Visible', [], 'symfonycms'),
                 'required' => false,
                 'attr' => [
-                    'class' => 'form-check-input'
+                    'class' => 'form-check-input',
                 ],
                 'row_attr' => ['class' => 'form-check form-switch form-switch-md mb-3'],
             ])
