@@ -12,12 +12,19 @@
         "symfony/mailer": "6.1.*",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0",
-        "symfony/twig-bundle": "6.1.*"
+        "symfony/twig-bundle": "6.1.*",
+        "symfony/asset": "6.1.*",
+        "symfony/form": "6.1.*",
+        "symfony/validator": "6.1.*",
+        "sensio/framework-extra-bundle": "^6.2",
+        "knplabs/knp-paginator-bundle": "^5.8",
+        "symfony/ux-twig-component": "^2.4"
     },
     "require-dev": {
         "symfony/webpack-encore-bundle": "^1.15",
         "phpstan/phpstan": "^1.8",
-        "friendsofphp/php-cs-fixer": "^3.10"
+        "friendsofphp/php-cs-fixer": "^3.10",
+        "symfony/maker-bundle": "^1.45"
     },
     "license": "GPL-3.0",
     "autoload": {

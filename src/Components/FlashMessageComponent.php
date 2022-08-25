@@ -5,7 +5,7 @@ namespace Brangerieau\SymfonyCmsBundle\Components;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
-#[AsTwigComponent('flashMessage')]
+#[AsTwigComponent('flashMessage', template: '@SymfonyCms/components/flashMessage.html.twig')]
 class FlashMessageComponent
 {
     public function __construct(
