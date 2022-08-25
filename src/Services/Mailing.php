@@ -12,10 +12,6 @@ use Twig\Error\SyntaxError;
 
 class Mailing
 {
-    /**
-     * @param Environment     $twig
-     * @param MailerInterface $mailer
-     */
     public function __construct(
         private readonly Environment $twig,
         private readonly MailerInterface $mailer
