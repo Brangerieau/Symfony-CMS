@@ -7,7 +7,7 @@
 The best way to install this bundle is to rely on [Composer](https://getcomposer.org/):
 
 ```bash
-$ composer require ...
+$ composer require brangerieau/symfonycms
 ```
 
 ### Enable the bundle
