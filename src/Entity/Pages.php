@@ -43,6 +43,12 @@ class Pages
     #[ORM\Column]
     private DateTimeImmutable $modified_at;
 
+    #[ORM\Column(options: ['default' => true])]
+    private bool $possible_to_delete = true;
+
+    #[ORM\Column(options: ['default' => false])]
+    private bool $home = false;
+
     public function __construct()
     {
         $this->setCreatedAt(new DateTimeImmutable());
@@ -157,6 +163,34 @@ class Pages
     public function setModifiedAt(DateTimeImmutable $modified_at): self
     {
         $this->modified_at = $modified_at;
+
+        return $this;
+    }
+
+    public function isPossibleToDelete(): bool
+    {
+        return $this->possible_to_delete;
+    }
+
+    public function setPossibleToDelete(bool $possible_to_delete): self
+    {
+        $this->possible_to_delete = $possible_to_delete;
+
+        return $this;
+    }
+
+    public function isHome(): bool
+    {
+        return $this->home;
+    }
+
+    public function setHome(bool $home): self
+    {
+        $this->home = $home;
+
+        if($home){
+            $this->possible_to_delete = false;
+        }
 
         return $this;
     }

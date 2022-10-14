@@ -70,9 +70,11 @@
                                             <li class="list-inline-item px-2">
                                                 <a href="{{ path('symfony_cms_pages_update', {page: page.id}) }}" title="{% trans from 'symfonycms' %}Edit{% endtrans %}"><i class="bx red bx-edit"></i></a>
                                             </li>
-                                            <li class="list-inline-item px-2">
-                                                <a href="{{ path('symfony_cms_pages_delete', {page: page.id}) }}" title="{% trans from 'symfonycms' %}Delete{% endtrans %}" class="sa-delete"><i class="bx bx-trash"></i></a>
-                                            </li>
+                                            {% if page.possibleToDelete %}
+                                                <li class="list-inline-item px-2">
+                                                    <a href="{{ path('symfony_cms_pages_delete', {page: page.id}) }}" title="{% trans from 'symfonycms' %}Delete{% endtrans %}" class="sa-delete"><i class="bx bx-trash"></i></a>
+                                                </li>
+                                            {% endif %}
                                         </ul>
                                     </td>
                                 </tr>

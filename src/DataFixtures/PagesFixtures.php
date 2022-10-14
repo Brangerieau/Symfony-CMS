@@ -22,6 +22,20 @@ class PagesFixtures extends Fixture implements DependentFixtureInterface
     {
         $faker = Factory::create('en_EN');
 
+        $page = new Pages();
+        $page->setName('Home')
+            ->setSlug(strtolower($this->slugger->slug($page->getName())))
+            ->setAuthor(
+                $this->userRepository->findOneBy(['email' => 'superadmin@symfony-cms.fr'])
+            )
+            ->setVisible(1)
+            ->setModifiedAt(new \DateTimeImmutable())
+            ->setCreatedAt(new \DateTimeImmutable())
+            ->setContent('[]')
+            ->setHome(true);
+
+        $manager->persist($page);
+
         for ($u = 0; $u < 15; ++$u) {
             $page = new Pages();
             $page->setName($faker->text(20))

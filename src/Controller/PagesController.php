@@ -8,6 +8,7 @@ use Brangerieau\SymfonyCmsBundle\Repository\PagesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -77,6 +78,11 @@ class PagesController extends AbstractController
     #[Route('/{page}/delete/', name: '_delete', requirements: ['user' => '\d+'])]
     public function delete(Request $request, Pages $page): RedirectResponse
     {
+
+        if(!$page->isPossibleToDelete()){
+            throw new BadRequestException('Impossible to delete this page', 400);
+        }
+
         $this->manager->remove($page);
         $this->manager->flush();
 
